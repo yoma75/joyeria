@@ -1,0 +1,187 @@
+:root {
+  --purple-dark: #170312;
+  --purple-medium: #33032d;
+  --purple-light: #531253;
+  --gray-light: #eaeaea;
+  --white: #f4fffd;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 20px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+p {
+  font-size: 22px;
+}
+
+/* ---------------------------------- header ----------------------- */
+.contenido-header {
+  background-image: url('../img/fotofondo.jpeg');
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.contenido-header .fondo_hojas {
+  background-image: url('../img/bg-top.png');
+  width: 0%;
+  height: 100%;
+  max-width: 100%;
+}
+
+.contenido-header .texto {
+  width: 100vw;
+  height: 100vh;
+  font-size: 90px;
+  font-weight: 400;
+  font-family: 'Noto Serif', serif;
+  font-style: italic;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: purple;
+  mix-blend-mode: multiply;  /* transparencia al texto */
+}
+
+/* ---------------------------------- Navbar ----------------------- */
+.menu {
+  background-color: var(--purple-medium);
+  width: 100%;
+  position: sticky;  /* el menu queda pegado */
+  top: 0;
+  padding: 5px;
+  z-index: 999;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  font-family: 'Noto Serif', serif;
+  font-style: italic;
+  margin-bottom: 60px;
+}
+
+.menu a {
+  display: inline-block;
+  padding: 10px 30px;
+  font-size: 26px;
+  text-decoration: none;
+  margin: 0 10px;
+  transition: .5s ease all;
+  color: var(--gray-light);
+}
+
+.menu a:hover {
+  transform: translateY(18px);
+  background-color: var(--purple-light);
+  border-radius: 3px;
+}
+
+
+/* ---------------------------------- Navbar ----------------------- */
+.nosotros {
+  margin-bottom: 60px;
+}
+
+.subtitulo {
+  font-size: 20px;
+  color: var(--purple-dark);
+  font-family: 'Noto Serif', serif;
+  font-weight: 700;
+  z-index: 2;  /* queda arriba el subtitulo */
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+/* posiciona la linea */
+.subtitulo span {
+  background-color: var(--gray-light);
+  padding: 0 15px;
+  z-index: 99;  /* coloca la linea por debajo */
+  position: relative;  /* se utiliza para que se pueda aplicar el z-index: */
+}
+
+/* Crear la línea */
+.subtitulo::after {
+  content: '';
+  display: inline-block;
+  height: 2px;
+  width: 100%;
+  background-color: var(--purple-dark);
+  position: relative;
+  top: -29px;
+  /* z-index: 1; */
+}
+
+.productos .titulo,
+.nosotros .titulo {
+  width: 70%;
+  font-size: 44px;
+  text-transform: uppercase;
+  display: inline-block;  /* como se aplica el 70% de ancho se descuadra, pero se centra con display:inline-block */
+  margin-bottom: 50px;
+}
+
+.nosotros .enlace {
+  display: inline-block;
+  margin-top: 40px;
+  color: var(--purple-light);
+  font-weight: 700;
+  border-bottom: 1px solid transparent;
+  transition: .3s ease all;
+}
+
+.nosotros .enlace:hover {
+  text-decoration: none;
+  letter-spacing: 3px;
+  border-bottom: 1px solid var(--purple-light);
+}
+
+/* ---------------------------------- productos ----------------------- */
+.productos {
+  background-color: var(--gray-light);
+  padding: 30px 20px;
+  margin-bottom: 60px;
+}
+
+.productos .producto {
+  position: relative;
+  width: 100%;
+}
+
+.productos .overlay {
+  width: 0%;
+  height: 100%;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: var(--purple-light);
+  overflow: hidden;
+  transition: .5s ease;
+}
+
+.productos .producto:hover .overlay {
+  width: 100%;
+  opacity: .8;
+}
+
+.productos .producto .overlay-texto {
+  top: 50%;
+  left: 10%;
+  position: absolute;
+  white-space: nowrap;
+  color: var(--white);
+  font-size: 18px;
+  transform: translateY(-50%, -50%);
+  overflow: hidden;
+  border-top: 1px solid var(--white);
+  border-bottom: 1px solid var(--white);
+}
